@@ -4,10 +4,81 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Agile2.UserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              d:DesignHeight="400"
              d:DesignWidth="800">
-  <Grid>
-    <TextBlock Text="SearchFacility" />
-  </Grid>
+   <Grid>
+      <StackPanel>
+         <DockPanel>
+            <TextBlock VerticalAlignment="Center"
+                       FontSize="22"
+                       Margin="5 0 0 0">
+               Book a Facility
+            </TextBlock>
+         </DockPanel>
+         <Label Content="_Activity"
+                HorizontalAlignment="Center"
+                Target="{Binding ElementName=ActivitySelector}"
+                BorderBrush="Black"
+                Margin="0,30,0,0" />
+         <ComboBox x:Name="ActivitySelector"
+                   Loaded="ActivitySelector_OnLoaded"
+                   SelectionChanged="ActivitySelector_OnSelectionChanged"
+                   Width="300" />
+
+         <Label Content="_Venue"
+                HorizontalAlignment="Center"
+                Target="{Binding ElementName=VenueSelector}"
+                Margin="0,30,0,0" />
+         <ComboBox x:Name="VenueSelector"
+                   Loaded="VenueSelector_OnLoaded"
+                   SelectionChanged="VenueSelector_OnSelectionChanged"
+                   Width="300"
+                   />
+
+         <Label Content="_Date"
+                Margin="0 30 0 0"
+                HorizontalAlignment="Center"
+                Target="{Binding ElementName=DateSelector}" />
+         <DatePicker x:Name="DateSelector"
+                     DisplayDateStart="{x:Static sys:DateTime.Today}"
+                     Width="300" />
+
+         <Button x:Name="SearchButton"
+                 Content="Search"
+                 Margin="0,30,0,30"
+                 IsDefault="True"
+                 Click="SearchButton_OnClick"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center" />
+
+         <Label Content="_Results"
+                HorizontalAlignment="Center"
+                Target="{Binding ElementName=DaySelector}" />
+         <ListBox x:Name="SearchResults"
+                  MaxHeight="400"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  SelectionChanged="SearchResults_OnSelectionChanged">
+            <ListBox.ItemTemplate>
+               <DataTemplate>
+                  <StackPanel Orientation="Horizontal">
+                     <TextBlock>
+                        <TextBlock.Text>
+                           <MultiBinding StringFormat="{}{0} &#xA;Location: {1} &#xA;Telephone: {2}">
+                              <Binding Path="Name" />
+                              <Binding Path="Addresss" />
+                              <Binding Path="PhoneNumber" />
+                           </MultiBinding>
+                        </TextBlock.Text>
+                     </TextBlock>
+                  </StackPanel>
+               </DataTemplate>
+            </ListBox.ItemTemplate>
+         </ListBox>
+
+      </StackPanel>
+
+   </Grid>
 </UserControl>
