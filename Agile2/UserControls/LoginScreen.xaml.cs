@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using Agile2.Helpers;
 
@@ -18,5 +19,11 @@ namespace Agile2.UserControls
         {
             throw new NotImplementedException();
         }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            var _context = new AgileDBContext();
+        }
+
     }
 }
