@@ -9,13 +9,9 @@
              d:DesignWidth="800"
              Background="White">
 
-  <StackPanel VerticalAlignment="Center"
-              HorizontalAlignment="Center">
-    <Image Source="Images/Logo.png"
-           Height="75"
-           Width="75"
-           Margin="0, 20, 0, 20" />
-    <Label Content="_Username"
+   <StackPanel VerticalAlignment="Center"
+               HorizontalAlignment="Center">
+      <Label Content="_Username"
            Target="{Binding ElementName=TxtUsername}"
            HorizontalAlignment="Center" />
     <TextBox Name="TxtUsername"
