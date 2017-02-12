@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agile2", "Agile2\Agile2.csproj", "{F4EC1BD1-5280-425B-A3A8-8C7E73B89E7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileData", "..\Agile\AgileData\AgileData.csproj", "{69FA4F4F-D9A7-4663-8BDB-39D18FB7B670}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgileData", "AgileData\AgileData.csproj", "{69FA4F4F-D9A7-4663-8BDB-39D18FB7B670}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
