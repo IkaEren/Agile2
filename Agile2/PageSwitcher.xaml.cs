@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Agile2.Helpers;
 using Agile2.UserControls;
+using AgileData;
 
 namespace Agile2
 {
@@ -11,6 +12,9 @@ namespace Agile2
     /// </summary>
     public partial class PageSwitcher : Window
     {
+        public Member LoggedInMember { get; set; }
+        public Transaction BuyedSt00f { get; } = new Transaction();
+
         public PageSwitcher()
         {
             InitializeComponent();
@@ -18,6 +22,13 @@ namespace Agile2
             Switcher.Switch(new LoginScreen());
         }
 
+        public PageSwitcher(Member loggedInMember)
+        {
+            InitializeComponent();
+            LoggedInMember = loggedInMember;
+            Switcher.pageSwitcher = this;
+            Switcher.Switch(new SearchFacilityScreen());
+        }
         public void Navigate(UserControl nextPage)
         {
             this.Content = nextPage;
