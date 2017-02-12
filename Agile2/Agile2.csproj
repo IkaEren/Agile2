@@ -108,6 +108,12 @@
     <Resource Include="Resources\Agile-logo.png" />
     <Resource Include="Resources\Agile.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AgileData\AgileData.csproj">
+      <Project>{69fa4f4f-d9a7-4663-8bdb-39d18fb7b670}</Project>
+      <Name>AgileData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
