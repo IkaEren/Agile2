@@ -4,9 +4,42 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Agile2.UserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+   
+   <StackPanel>
+
+      <TextBlock VerticalAlignment="Center"
+                 FontSize="22"
+                 Margin="5 0 0 0">
+               Booking
+      </TextBlock>
+
+      <ListBox x:Name="BookableList"
+               MaxHeight="1000"
+               Margin="0 10 0 0"
+               HorizontalAlignment="Center"
+               SelectionMode="Multiple"
+               SelectionChanged="BookableList_OnSelectionChanged">
+
+         <ListBox.ItemContainerStyle>
+            <Style TargetType="{x:Type ListBoxItem}">
+               <Style.Triggers>
+                  <DataTrigger Binding="{Binding homieTheySame}"
+                               Value="True">
+                     <Setter Property="IsEnabled"
+                             Value="False" />
+                  </DataTrigger>
+               </Style.Triggers>
+            </Style>
+         </ListBox.ItemContainerStyle>
+      </ListBox>
+
+      <Button x:Name="Confirm"
+              Content="Confirm"
+              Margin="0,30,0,30"
+              Click="Confirm_OnClick"
+              HorizontalAlignment="Center" />
+   </StackPanel>
 </UserControl>

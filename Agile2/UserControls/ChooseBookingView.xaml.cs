@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Agile2.Helpers;
+using AgileData;
 
 namespace Agile2.UserControls
 {
@@ -21,12 +22,32 @@ namespace Agile2.UserControls
     /// </summary>
     public partial class ChooseBookingView : UserControl , ISwitchable
     {
+        protected Facility selectedBooking;
+        private readonly AgileDbContext _context = new AgileDbContext();
+        private List<Booking> bookings = new List<Booking>();
+
         public ChooseBookingView()
         {
             InitializeComponent();
         }
 
         public void UtilizeState(object state)
+        {
+            Booking selection = state as Booking;
+            selectedBooking = selection.Facility;
+
+            for (int i = 0; i <= 15; i++)
+            {
+                bookings.Add(new Booking() { Facility = selection.Facility, BookingTime = selection.BookingTime.AddHours(7 + i) });
+            }
+        }
+
+        private void BookableList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Confirm_OnClick(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
         }

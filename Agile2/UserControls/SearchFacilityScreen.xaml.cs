@@ -41,9 +41,9 @@ namespace Agile2.UserControls
         {
             try
             {
-                SearchResults.ItemsSource = from venues in _context.Venues
-                                            where venues.Name == VenueSelector.SelectedItem.ToString()
-                                            select venues;
+                SearchResults.ItemsSource = from facilities in _context.Facilities
+                                            where facilities.Venue.Name == VenueSelector.SelectedItem.ToString()
+                                            select facilities.Venue;
             }
             catch (NullReferenceException)
             {
@@ -98,11 +98,16 @@ namespace Agile2.UserControls
 
         private void SearchResults_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var query =
+                from facilities in _context.Facilities
+                where facilities.Venue.Name == VenueSelector.SelectedItem.ToString()
+                select facilities;
+
             DateTime selectedDate = DateSelector.SelectedDate ?? DateTime.Today;
-            var state = new
+            var state = new Booking
             {
-                Venue =  SearchResults.SelectedItems,
-                StartTime = selectedDate
+                Facility = query.SingleOrDefault(),
+                BookingTime = selectedDate
             };
 
             Switcher.Switch(new ChooseBookingView(),state );
