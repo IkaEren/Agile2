@@ -98,7 +98,14 @@ namespace Agile2.UserControls
 
         private void SearchResults_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            DateTime selectedDate = DateSelector.SelectedDate ?? DateTime.Today;
+            var state = new
+            {
+                Venue =  SearchResults.SelectedItems,
+                StartTime = selectedDate
+            };
+
+            Switcher.Switch(new ChooseBookingView(),state );
         }
     }
 }
