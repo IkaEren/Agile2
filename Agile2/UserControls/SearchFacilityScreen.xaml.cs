@@ -12,17 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Agile2.Helpers;
+using AgileData;
 
 namespace Agile2.UserControls
 {
     /// <summary>
     /// Interaction logic for SearchFacilityScreen.xaml
     /// </summary>
-    public partial class SearchFacilityScreen : UserControl
+    public partial class SearchFacilityScreen : UserControl, ISwitchable
     {
         public SearchFacilityScreen()
         {
             InitializeComponent();
+        }
+
+        public void UtilizeState(object state)
+        {
+            
+            throw new NotImplementedException();
         }
     }
 }

@@ -15,9 +15,6 @@ namespace Agile2.UserControls
     public partial class LoginScreen : UserControl, ISwitchable
     {
         private readonly AgileDbContext _context = new AgileDbContext();
-        private string _loginEmail;
-        private SecureString _securePassword;
-        private Member _loginMember;
 
         public LoginScreen()
         {
@@ -33,14 +30,15 @@ namespace Agile2.UserControls
         {
             try
             {
-                Member loggingInMember = _context.Members.SingleOrDefault(m => m.Email == TxtUsername.Text);
+                Member loggingInMember = _context.Members.SingleOrDefault(m => m.Email == TxtUsername.Text && m.Password == PwdPassword.Password);
                 if (loggingInMember == null)
                 {
                     throw new NullReferenceException();
                 }
-                PageSwitcher switcher = new PageSwitcher(loggingInMember);
-                switcher.Show();
-                switcher.Close();
+                Switcher.Switch(new SearchFacilityScreen());
+                //PageSwitcher switcher = new PageSwitcher(loggingInMember);
+                //switcher.Show();
+                //switcher.Close();
             }
             catch (Exception ex) when (ex is NullReferenceException)
             {
