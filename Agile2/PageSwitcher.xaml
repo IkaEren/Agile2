@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Agile2"
         mc:Ignorable="d"
         Title="PageSwitcher"
-        Height="400"
+        Height="1200"
         Width="800">
   <Grid>
 

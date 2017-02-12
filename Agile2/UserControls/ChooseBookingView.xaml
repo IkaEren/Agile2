@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Agile2.UserControls"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="1200" d:DesignWidth="600">
    <StackPanel>
 
       <TextBlock VerticalAlignment="Center"
