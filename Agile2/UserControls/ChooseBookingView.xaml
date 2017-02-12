@@ -7,7 +7,6 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-   
    <StackPanel>
 
       <TextBlock VerticalAlignment="Center"
@@ -22,11 +21,17 @@
                HorizontalAlignment="Center"
                SelectionMode="Multiple"
                SelectionChanged="BookableList_OnSelectionChanged">
-
+         
+         <ListBox.ItemTemplate>
+            <DataTemplate>
+               <Label Content="{Binding Path=BookingTime}" />
+            </DataTemplate>
+         </ListBox.ItemTemplate>
+         
          <ListBox.ItemContainerStyle>
             <Style TargetType="{x:Type ListBoxItem}">
                <Style.Triggers>
-                  <DataTrigger Binding="{Binding homieTheySame}"
+                  <DataTrigger Binding="{Binding BookingTime}"
                                Value="True">
                      <Setter Property="IsEnabled"
                              Value="False" />
@@ -35,6 +40,8 @@
             </Style>
          </ListBox.ItemContainerStyle>
       </ListBox>
+
+
 
       <Button x:Name="Confirm"
               Content="Confirm"

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,7 @@ namespace Agile2.UserControls
         protected Facility selectedBooking;
         private readonly AgileDbContext _context = new AgileDbContext();
         private List<Booking> bookings = new List<Booking>();
+        List<Booking> cfmBookings = new List<Booking>();
 
         public ChooseBookingView()
         {
@@ -40,16 +42,35 @@ namespace Agile2.UserControls
             {
                 bookings.Add(new Booking() { Facility = selection.Facility, BookingTime = selection.BookingTime.AddHours(7 + i) });
             }
+
+            BookableList.ItemsSource = bookings;
         }
 
         private void BookableList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            // not implemented 
+            
+            //cfmBookings.Add((Booking)BookableList.SelectedItem); 
         }
 
         private void Confirm_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            //foreach (var bookings in bookings)
+            //{
+            //    foreach (var timings in cfmBookings)
+            //    {
+            //        if (bookings.BookingTime == timings.BookingTime)
+            //        {
+            //            using (_context)
+            //            {
+            //                _context.Bookings.Add(bookings);
+            //                _context.SaveChanges();
+            //            }
+            //        }
+            //    }
+            //}
+            var state = BookableList.SelectedItems;
+            Switcher.Switch(new CartView(), state);
         }
     }
 }

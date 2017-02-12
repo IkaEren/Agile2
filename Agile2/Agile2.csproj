@@ -169,6 +169,9 @@
       <DependentUpon>PageSwitcher.xaml</DependentUpon>
     </Compile>
     <Compile Include="Switcher.cs" />
+    <Compile Include="UserControls\CartView.xaml.cs">
+      <DependentUpon>CartView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ChooseBookingView.xaml.cs">
       <DependentUpon>ChooseBookingView.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
     </Compile>
     <Compile Include="Helpers\ISwitchable.cs" />
     <Page Include="PageSwitcher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
