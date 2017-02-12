@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Agile2.Helpers;
+using Agile2.UserControls;
 
 namespace Agile2
 {
@@ -14,7 +15,7 @@ namespace Agile2
         {
             InitializeComponent();
             Switcher.pageSwitcher = this;
-            Switcher.Switch(new MainMenu());
+            Switcher.Switch(new LoginScreen());
         }
 
         public void Navigate(UserControl nextPage)
