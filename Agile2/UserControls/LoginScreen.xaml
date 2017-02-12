@@ -8,58 +8,32 @@
              d:DesignHeight="400"
              d:DesignWidth="800"
              Background="White">
-  <Grid VerticalAlignment="Center"
-        HorizontalAlignment="Center">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition />
-      <ColumnDefinition />
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-      <RowDefinition />
-      <RowDefinition />
-      <RowDefinition />
-      <RowDefinition />
-    </Grid.RowDefinitions>
-    <!--<Image Source="/Resources/Agile-logo.png"
-           Grid.ColumnSpan="2"
-           HorizontalAlignment="Center"
-           Margin="5" />-->
-    <Label Content="_Email:"
-           Target="{Binding ElementName=TxtEmail}"
-           Grid.Row="1"
-           Grid.Column="0"
-           Margin="3"
-           HorizontalAlignment="Right" />
-    <TextBox x:Name="TxtEmail"
-             Text="{Binding LoginEmail, ValidatesOnNotifyDataErrors=True,
-      Mode=TwoWay}"
-             Grid.Row="1"
-             Grid.Column="1"
-             Margin="3"
-             MinWidth="140"
-             HorizontalAlignment="Left" />
-    <Label Content="_Password:"
+
+  <StackPanel VerticalAlignment="Center"
+              HorizontalAlignment="Center">
+    <Image Source="Images/Logo.png"
+           Height="75"
+           Width="75"
+           Margin="0, 20, 0, 20" />
+    <Label Content="_Username"
+           Target="{Binding ElementName=TxtUsername}"
+           HorizontalAlignment="Center" />
+    <TextBox Name="TxtUsername"
+             Text="alice@agilesg.com"
+             Width="300" />
+    <Label Content="_Password"
            Target="{Binding ElementName=PwdPassword}"
-           Grid.Row="2"
-           Grid.Column="0"
-           Margin="3"
-           HorizontalAlignment="Right" />
-    <PasswordBox x:Name="PwdPassword"
-                 Grid.Column="1"
-                 Grid.Row="2"
-                 Margin="3"
-                 MinWidth="140"
-                 HorizontalAlignment="Left" />
-    <Button Command="{Binding LoginCommand, Mode=OneWay}"
-            CommandParameter="{Binding ElementName=LoginWin}"
-            IsDefault="True"
-            Content="_Login"
-            Width="75"
-            Grid.Row="3"
-            Grid.Column="1"
-            Margin="3"
+           HorizontalAlignment="Center" />
+    <PasswordBox Name="PwdPassword"
+                 Password="agilealice"
+                 Width="300" />
+
+    <Button Content="Login"
+            Margin="0, 20, 0, 0"
+            Click="Login_Click"
+            Width="100"
             HorizontalAlignment="Center"
             VerticalAlignment="Center" />
-  </Grid>
 
+  </StackPanel>
 </UserControl>
